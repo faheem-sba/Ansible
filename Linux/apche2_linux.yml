@@ -4,9 +4,9 @@
     tasks:
       - name: ensure apache is at the latest version
         apt:
-          name: apache2
+          name: git
           state: latest
       - name: ensure apache is running
         service:
-          name: apache2
+          name: git
           state: started
