@@ -1,6 +1,7 @@
 ---
   - name: Playbook
     hosts: all
+    ignore_errors: true
     tasks:
       - name: ensure apache is at the latest version
         yum:
