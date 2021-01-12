@@ -3,7 +3,7 @@
     hosts: all
     tasks:
       - name: ensure apache is at the latest version
-        apt:
+        yum:
           name: git
           state: latest
       - name: ensure apache is running
