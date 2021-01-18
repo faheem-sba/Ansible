@@ -5,9 +5,9 @@
     tasks:
       - name: ensure apache is at the latest version
         yum:
-          name: git
+          name: apache2
           state: latest
       - name: ensure apache is running
         service:
-          name: git
+          name: apache2
           state: started
