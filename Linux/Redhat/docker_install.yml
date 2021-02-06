@@ -1,0 +1,26 @@
+---
+- name: Installing Docker-CE on CentOS
+  hosts: ansible.sbalab.com
+  tasks:
+    - name: install yum-utils
+      yum:
+        name: yum-utils
+        state: present
+
+    - name: enabling docker repo
+      command:
+        cmd: 'yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo'
+
+    - name: install docker
+      yum:
+        name:
+           - docker-ce
+           - containerd.io
+           - docker-ce-cli
+        state: present
+
+    - name: download and install docker-compose 1.27.4
+      get_url:
+        url: https://github.com/docker/compose/releases/download/1.27.4/docker-compose-Linux-x86_64
+        dest: /usr/local/bin/docker-compose
+        mode: 'ugo+x'
