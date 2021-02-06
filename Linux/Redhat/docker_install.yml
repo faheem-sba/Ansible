@@ -1,6 +1,6 @@
 ---
 - name: Installing Docker-CE on CentOS
-  hosts: ansible.sbalab.com
+  hosts: all
   tasks:
     - name: install yum-utils
       yum:
