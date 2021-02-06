@@ -1,5 +1,6 @@
 ---
-
+  hosts: all
+  tasks:
 - name: scan & update all patches
   tasks:
     - name: run yum for centos
