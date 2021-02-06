@@ -1,0 +1,8 @@
+---
+
+- name: scan & update all patches
+  tasks:
+    - name: run yum for centos
+      yum: 
+        package: '*'
+        state: latest
