@@ -1,9 +1,10 @@
 ---
+
+- name: scan & update all patches
   hosts: all
   tasks:
- - name: scan & update all patches
-   tasks:
     - name: run yum for centos
       yum: 
-        package: '*'
+        name: '*'
         state: latest
+      register: result
