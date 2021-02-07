@@ -1,0 +1,16 @@
+---
+- name: test raw module
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Copy winlogbeat file
+      win_copy:
+         src: /etc/ansible/elk/winlogbeat
+         dest: C:\windows\
+    - name: Commands
+      win_shell: |
+       powershell.exe -ExecutionPolicy Bypass -File C:\windows\winlogbeat\install-service-winlogbeat.ps1
+       cd C:\windows\winlogbeat
+       .\winlogbeat.exe test config -e
+       Start-Service winlogbeat
+       Get-Service winlogbeat
