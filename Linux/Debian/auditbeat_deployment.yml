@@ -11,3 +11,9 @@
       - name: Installing auditbeat
         apt:
           deb: /tmp/auditbeat-7.11.0-amd64.deb
+      
+      - name: copyig config files
+        template:
+          src:  /etc/ansible/files/elk/auditbeat/auditbeat.j2
+          dest: /etc/auditbeat/auditbeat.yml
+          mode: '500'
