@@ -4,7 +4,7 @@
     tasks:
       - name: Copy filebeat pkg
         copy:
-         src: /etc/ansible/auditbeat-7.11.0-amd64.deb
+         src: /etc/ansible/files/elk/auditbeat/auditbeat-7.11.0-amd64.deb
          dest: /tmp/
          mode: '777'
         
