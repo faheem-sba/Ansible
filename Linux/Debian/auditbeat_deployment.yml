@@ -1,0 +1,13 @@
+---
+  - name: auditbeat deployment
+    hosts: all
+    tasks:
+      - name: Copy filebeat pkg
+        copy:
+        src: /root/elk_pkg/auditbeat-7.11.0-amd64.deb
+        dest: /tmp/
+        mode: '777'
+        
+      - name: Installing auditbeat
+        apt:
+          deb: /tmp/auditbeat-7.11.0-amd64.deb
