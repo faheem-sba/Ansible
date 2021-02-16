@@ -5,8 +5,7 @@
       - name: Copy filebeat pkg
         copy:
          src: /tmp/test/auditbeat-7.11.0-amd64.deb
-         dest: /tmp
-         mode: '777'
+         dest: /tmp/
         
       - name: Installing auditbeat
         apt:
