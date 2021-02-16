@@ -16,4 +16,4 @@
         template:
           src:  /etc/ansible/files/elk/auditbeat/auditbeat.j2
           dest: /etc/auditbeat/auditbeat.yml
-          mode: '500'
+          mode: '600'
