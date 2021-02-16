@@ -23,7 +23,7 @@
           mode: '600'
      
       - name: filebeat setup cmd
-        shell: filebeat setup -e
+        shell: auditbeat setup -e
         register: output
         
       - name: debug
