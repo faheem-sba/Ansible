@@ -3,8 +3,8 @@
     hosts: all
     tasks:
       - name: Get uptime information
-           shell: /usr/bin/uptime
-           register: result
+        shell: /usr/bin/uptime
+        register: result
       
       - name: Copy filebeat pkg
         copy:
