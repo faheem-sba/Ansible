@@ -22,7 +22,7 @@
           dest: /etc/auditbeat/auditbeat.yml
           mode: '600'
      
-      - name: filebeat setup cmd
+      - name: auditbeat setup cmd
         shell: auditbeat setup -e
         register: output
         
