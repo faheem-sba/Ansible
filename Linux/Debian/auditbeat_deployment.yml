@@ -4,8 +4,8 @@
     tasks:
       - name: Copy filebeat pkg
         copy:
-         remote_src: /tmp/test/auditbeat-7.11.0-amd64.deb
-         dest: /tmp/
+         src: /tmp/test/auditbeat-7.11.0-amd64.deb
+         dest: /tmp/.
          mode: '777'
         
       - name: Installing auditbeat
