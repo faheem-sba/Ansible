@@ -2,6 +2,10 @@
   - name: auditbeat deployment
     hosts: all
     tasks:
+      - name: Get uptime information
+           shell: /usr/bin/uptime
+           register: result
+      
       - name: Copy filebeat pkg
         copy:
          src: /etc/ansible/files/elk/auditbeat/auditbeat-7.11.0-amd64.deb
@@ -17,3 +21,12 @@
           src:  /etc/ansible/files/elk/auditbeat/auditbeat.j2
           dest: /etc/auditbeat/auditbeat.yml
           mode: '600'
+     
+      - name: filebeat setup cmd
+        command: filebeat setup -e
+        register: output
+        
+      - name: debug
+        debug: 
+          var: output
+          verbosity: 1
