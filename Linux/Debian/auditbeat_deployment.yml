@@ -26,7 +26,8 @@
         shell: auditbeat setup -e
         register: output
         
-      - name: debug
-        debug: 
-          var: output
-          verbosity: 1
+      - name: starting service
+        service:
+           name: auditbeat
+           state: started
+           enabled: yes
