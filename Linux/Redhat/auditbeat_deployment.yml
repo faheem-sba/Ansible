@@ -10,7 +10,7 @@
         
       - name: Installing auditbeat
         yum:
-          name: /tmp/auditbeat-7.11.0-amd64.rpm
+          name: /tmp/auditbeat-7.11.1-amd64.rpm
           state: present
           
       - name: copyig config files
