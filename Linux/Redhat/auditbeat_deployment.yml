@@ -1,0 +1,30 @@
+---
+  - name: Redhat auditbeat deployment
+    hosts: all
+    tasks:      
+      - name: Copy filebeat pkg
+        copy:
+         src: /etc/ansible/files/elk/auditbeat/auditbeat-7.11.0-amd64.rpm
+         dest: /tmp/
+         mode: '777'
+        
+      - name: Installing auditbeat
+        rpm:
+          name: /tmp/auditbeat-7.11.0-amd64.rpm
+          state: present
+          
+      - name: copyig config files
+        template:
+          src:  /etc/ansible/files/elk/auditbeat/auditbeat.j2
+          dest: /etc/auditbeat/auditbeat.yml
+          mode: '600'
+     
+      - name: audit setup cmd
+        shell: auditbeat setup -e
+        register: output
+        
+      - name: starting service.
+        service:
+           name: auditbeat
+           state: started
+           enabled: yes
