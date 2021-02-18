@@ -2,11 +2,17 @@
   - name: Redhat auditbeat deployment
     hosts: all
     tasks:      
+      
       - name: Copy filebeat pkg
         copy:
          src: /etc/ansible/files/elk/auditbeat/auditbeat-7.11.1-x86_64.rpm
          dest: /tmp/
          mode: '777'
+         
+      - name: adding gpg key
+        rpm_key: 
+           state: present
+           key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
         
       - name: Installing auditbeat
         yum:
@@ -17,13 +23,7 @@
         template:
           src:  /etc/ansible/files/elk/auditbeat/auditbeat.j2
           dest: /etc/auditbeat/auditbeat.yml
-          mode: '600'
-          
-      - name: adding gpg key
-        rpm_key: 
-           state: present
-           key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
-           
+          mode: '600'            
      
       - name: audit setup cmd
         shell: auditbeat setup -e
