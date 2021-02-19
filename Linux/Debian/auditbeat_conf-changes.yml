@@ -1,0 +1,9 @@
+---
+- name: Changing Conf
+  hosts: all
+  tasks:
+    - name: copying conf files
+      copy: 
+        src: 
+        dest:
+        mode: 
