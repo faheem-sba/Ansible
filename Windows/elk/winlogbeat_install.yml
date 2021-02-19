@@ -5,7 +5,7 @@
   tasks:
     - name: Copy winlogbeat file
       win_copy:
-         src: /etc/ansible/elk/winlogbeat
+         src: /etc/ansible/files/elk/winlogbeat
          dest: C:\Windows
     - name: Commands
       win_shell: |
