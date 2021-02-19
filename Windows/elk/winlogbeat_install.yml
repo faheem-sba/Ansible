@@ -1,7 +1,7 @@
 ---
-- name: test raw module
+- name: Winlogbeat Deployment
   hosts: all
-  gather_facts: false
+  gather_facts: true
   tasks:
     - name: Copy winlogbeat file
       win_copy:
