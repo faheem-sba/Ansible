@@ -1,0 +1,22 @@
+---
+- name: Changing Conf
+  hosts: all
+  tasks:
+      - name: stoping service
+        service:
+           name: auditbeat
+           state: stopped
+
+      - name: copyig config files
+        template:
+          src:  /etc/ansible/files/elk/auditbeat/auditbeat.j2
+          dest: /etc/auditbeat/auditbeat.yml
+          mode: '600'
+          
+      - name: starting service
+        service:
+           name: auditbeat
+           state: started
+
+        
+      
