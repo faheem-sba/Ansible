@@ -6,7 +6,7 @@
     - name: Copy winlogbeat file
       win_copy:
          src: /etc/ansible/elk/winlogbeat
-         dest: C:\windows\
+         dest: C:\Windows
     - name: Commands
       win_shell: |
        powershell.exe -ExecutionPolicy Bypass -File C:\windows\winlogbeat\install-service-winlogbeat.ps1
